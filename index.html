@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAZAGA'S PORTFOLIO</title>
+    <link rel="icon" href="pic.png" type="image/png">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --bg-color: #1f242d;
+            --second-bg-color: #323946;
+            --text-color: #fff;
+            --main-color: #0ef
+        }
+
+        html {
+            font-size: 62.5;
+            overflow: auto;
+
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 1rem;
+
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .navbar a{
+            font-size: 1.7rem;
+            color: var(--text-color);
+            margin-left: 3rem;
+            transition: .3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--main-color);
+        }
+
+        #menu-icon {
+            font-size: 2.6rem;
+            color: var(--text-color);
+            display: none;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-img img {
+            width: 25vw;
+            border-radius: 50rem;
+            padding: 0;
+            border: 0.1rem solid var(--bg-color);
+            box-shadow: 10px 10px 30rem rgba(0, 0, 0, 0.916);
+            transition: 1s ease;
+            animation: floatImage 3s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-2rem);
+            }
+           100% {
+                transform: translateY(0);
+            }
+        }
+
+        .home-img img:hover {
+            border-color: var(--main-color);
+            transform: scale(1.02);
+        }
+
+        .home-content h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .home-content h3:nth-of-type(2) {
+            margin-bottom: .5rem;
+        }
+
+        span {
+            color: var(--main-color);
+        }
+
+        .home-content h1 {
+           font-size: 4 .6rem;
+           font-weight: 700;
+           line-height: 1.3;
+
+        }
+
+        .home-content p {
+            font-size: 1.6rem;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--main-color);
+            margin: 3rem 1.5rem 3rem 0;
+            transition: .5s ease;
+        }
+
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--second-bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+        }
+
+        .btn:hover{
+            box-shadow: none;
+        }
+
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            background: var(--second-bg-color);
+            padding: 4rem 4rem;
+            flex-wrap: wrap; 
+        }
+
+        .about-img {
+            flex: 1; 
+            display: flex;
+            justify-content: center; 
+            align-items: flex-end;
+            margin-bottom: -20px;
+        }
+
+        .about-img img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 100px;
+            object-fit: cover;
+            padding: 0;
+            border: 0.2rem solid var(--bg-color);
+            box-shadow: 10px 15px 1rem rgba(1, 12, 19, 0.916);
+            transition: 1s ease;
+        }
+
+        .about-img img:hover {
+            border-color: var(--main-color);
+            transform: scale(1.02);
+        }
+        .about-content {
+            flex: 1; 
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .about-content h2 {
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .about-content h3 {
+            font-size: 2.6rem;
+        }
+
+        .about-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+        }
+
+
+        .hobbies h2 {
+            margin-bottom: 2rem;
+        }
+
+        .hobbies-container {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 1rem; 
+            flex-wrap: wrap; 
+        }
+
+        .hobbies-container .services-box {
+            background: var(--second-bg-color);
+            padding: 3rem;
+            border-radius: 3rem;
+            text-align: center;
+            border: 0.1rem solid var(--bg-color);
+            flex: 1 1 calc(33.33% - 2rem); 
+            max-width: 370px; 
+            box-shadow: 20px 7px 6px rgba(0, 0, 0, 0.942);
+            transition: .5s ease; 
+        }
+
+        .hobbies-container .services-box:hover {
+            border-color: var(--main-color);
+            transform: scale(1.02);
+        }
+        
+
+        .services-box i {
+            font-size: 5rem;
+            color: var(--main-color);
+        }
+
+        .services-box h3 {
+            font-size: 1.5rem;
+        }
+
+        .services-box p {
+            font-size: .5rem;
+            margin: 1rem 0 2rem;
+        }
+
+        .portfolio {
+            background: var(--second-bg-color);
+        }
+        .portfolio h2 {
+            margin-bottom: 2rem;
+        }
+
+        .portfolio h4 {
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .portfolio-container .portfolio-box {
+            position: relative;
+            border-radius: 40rem;
+            box-shadow: 10px 7px 6px rgba(8, 192, 228, 0.916);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 210px;
+            transition: 1s ease;
+        }
+
+
+        .portfolio-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1s ease;
+            
+        }
+
+        .portfolio-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-box .portfolio-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: translateY(100%);
+            transition: 1s ease;
+        }
+
+        .portfolio-box:hover .portfolio-layer{
+            transform: translateY(0);
+            
+        }
+
+        .portfolio-layer {
+            font-size: 2rem;
+        }
+
+        .portfolio-layer p {
+            font-size: 1rem;
+            margin: .3rem 0 1rem;
+            justify-content: center;
+        }
+
+        .portfolio-layer a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background: var(--text-color);
+            border-radius: 50%;
+        }
+
+        .portfolio-layer a i {
+            font-size: 2rem;
+            color: var(--second-bg-color);
+        }
+
+        .contact h2 {
+    margin-bottom: 0.5rem;  
+}
+
+.contact form {
+    max-width: 40rem; 
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 1rem; 
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 0.7rem; 
+    font-size: 1.4rem; 
+    color: var(--text-color);
+    background-color: var(--second-bg-color);
+    border-radius: 0.5rem; 
+    margin: 0.5rem; 
+}
+
+.contact form .input-box input {
+    width: 47%;
+}
+
+.contact form textarea {
+    resize: none;
+}
+
+.contact form .btn {
+    margin-top: 1rem; 
+    padding: 0.7rem 1.5rem; 
+    font-size: 1.4rem; 
+    cursor: pointer;
+}
+
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 2rem 5%;
+            background: var(--second-bg-color);
+        }
+
+        .footer-text p {
+            font-size: 1.6rem;
+        }
+
+        .footer-iconTop a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem;
+            background: var(--main-color);
+            border-radius: .8rem;
+            transition: .5s ease;
+        }
+
+        .footer-iconTop a:hover {
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+        
+        .footer-iconTop a i {
+            font-size: 1.4rem;
+            color: var(--second-bg-color);
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">PORTFOLIO</a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#hobbies">HOBBIES</a>
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="#contact">CONTACT</a>
+            
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Jenard Lazaga</h1>
+            <h3>And I'm a <span>Student of IPT 101</span></h3>
+            <p>I’m Jenard Lazaga, a front-end development student skilled in IT and design,
+                 focused on building responsive websites.</p>
+            
+                 <div class="social-media">
+                    <a href="https://www.facebook.com/profile.php?id=61553134370855" target="_blank">
+                        <i class='bx bxl-facebook'></i> 
+                    </a>
+                    <a href="https://www.instagram.com/jenardlazaga/" target="_blank">
+                        <i class='bx bxl-instagram-alt'></i> 
+                    </a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">
+                        <i class='bx bxl-gmail'></i> 
+                    </a>
+                    <a href="https://www.linkedin.com/in/jenard-lazaga-33941722b/" target="_blank">
+                        <i class='bx bxl-linkedin'></i> 
+                    </a>
+                </div> 
+            <a href="#" class="btn">Download CV</a>    
+        </div>
+        <div class="home-img">
+            <img src="home copy.png" alt="">
+        </div>
+    </section>
+         
+
+                        <!-------------------- ABOUT SECTION---------------------------->
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="aboutpic.png" alt="A personal photo of Jenard E. Lazaga">
+        </div>
+                        
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Student of IPT 101</h3>
+            <p>I’m Jenard E. Lazaga, a front-end development student with a strong background
+                in IT and graphic design. I am passionate about crafting responsive, user-friendly 
+                websites and continuously improving my skills in HTML, CSS, JavaScript, and modern front-end frameworks to 
+                                    deliver innovative web solutions.</p>
+                        
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </section>
+
+                        <!-------------------- HOBBIES SECTION---------------------------->
+
+    <section class="hobbies" id="hobbies">
+        <h2 class="heading">My <span>Hobbies</span></h2>
+                        
+        <div class="hobbies-container">
+                                
+            <div class="services-box">
+                <i class='bx bxs-plane-alt'></i>
+                <h3>Traveling</h3>
+                <p>Traveling is a passion of mine. It broadens my horizons, exposes me to new cultures, and gives me unforgettable experiences.</p>
+                <a href="https://www.tripadvisor.com" target="_blank" class="btn">Read More</a> 
+            </div>
+                            
+                                
+            <div class="services-box">
+                <i class='bx bx-movie-play'></i>
+                <h3>Watching Movies</h3>
+                <p>Watching movies is another hobby I enjoy. It allows me to relax and immerse myself in different stories and cultures.</p>
+                <a href="https://www.netflix.com" target="_blank" class="btn">Read More</a> 
+            </div>
+                            
+                                
+            <div class="services-box">
+                <i class='bx bx-basketball'></i>
+                <h3>Sports</h3>
+                <p>I also love playing sports, as it keeps me energetic, improves my teamwork skills, and is a fun way to stay fit.</p>
+                <a href="https://www.espn.com" target="_blank" class="btn">Read More</a> 
+            </div>
+        </div>
+    </section>
+
+                        <!-------------------- PORTFOLIO SECTION---------------------------->
+
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Latest <span>Project</span></h2>
+
+        <div class="portfolio-container">
+ 
+            <div class="portfolio-box">
+                <img src="Project1.png" alt="JSON FORM">
+                <div class="portfolio-layer">
+                    <h4>JSON FORM</h4>
+                    <p>Fill in your name, age, email, and hobby, then click submit to generate the JSON output.</p>
+                    <a href="https://nardo8.github.io/LazagaJS/" target="_blank"><i class='bx bx-link-external'></i></a> 
+                </div>
+            </div>
+            
+            <div class="portfolio-box">
+                <img src="project2.png" alt="Weather Update Iligan">
+                <div class="portfolio-layer">
+                    <h4>Weather Update Iligan</h4>
+                    <p>Get the latest weather updates for Iligan, including temperature, conditions, and forecasts.</p>
+                    <a href="https://nardo8.github.io/LazagaWea/" target="_blank"><i class='bx bx-link-external'></i></a> 
+                </div>
+            </div>
+        
+            <div class="portfolio-box">
+                <img src="project3.png" alt="Lazaga X Shopee">
+                <div class="portfolio-layer">
+                    <h4>Lazaga X Shopee</h4>
+                    <p>This shop offers high-quality tech products, including laptops, headphones, and keyboards, with detailed descriptions, prices, and stock availability.</p>
+                    <a href="https://nardo8.github.io/Lazaga-x-Shopee/#" target="_blank"><i class='bx bx-link-external'></i></a> 
+                </div>
+            </div>
+        
+            <div class="portfolio-box">
+                <img src="project4.png" alt="Contact Form">
+                <div class="portfolio-layer">
+                    <h4>CONTACT FORM</h4>
+                    <p>This is my Recent Activity of making a Contact Form.</p>
+                    <a href="https://nardo8.github.io/EmailJavaS/" target="_blank"><i class='bx bx-link-external'></i></a> 
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+                        <!-------------------- CONTACT SECTION---------------------------->
+
+    <section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me!</span></h2>
+
+    <!-- Form with updated structure and name attributes -->
+    <form id="contact-form">
+        <div class="input-box">
+            <input type="text" name="full_name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        
+        <div class="input-box">
+            <input type="tel" name="mobile_number" placeholder="Mobile Number" required pattern="[0-9]{10,}">
+            <input type="text" name="subject" placeholder="Email Subject" required>
+        </div>
+        <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message" class="btn">
+    </form>
+</section>
+
+
+                        <!-------------------------------- FOOTER ------------------------------------------------->
+
+    <footer class="footer">
+            <div class="footer-text">
+                <p>Copyright &copy; by 2024 Jenard Lazaga | All Rights Reserved.</p>
+            </div>
+                    
+            <div class="footer-iconTop">
+                <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+            </div>
+    </footer>
+
+                        <!-------------------------------- JAVASCRIPT ------------------------------------------------->
+                        <script>
+                            document.addEventListener('DOMContentLoaded', () => {
+                               
+                            });
+                        </script>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        
+        (function () {
+            emailjs.init("GIejThaQL1y09VYXz");
+            console.log("EmailJS initialized");
+        })();
+
+        
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+
+            const form = this;
+
+            
+            const submitButton = form.querySelector('.btn');
+            submitButton.value = 'Sending...';
+            submitButton.disabled = true;
+
+            
+            emailjs.sendForm('service_adnu3sb', 'template_2z66znf', form)
+                .then(function () {
+                    console.log('Email sent successfully');
+                    alert('Message Sent Successfully!');
+                    form.reset(); 
+                })
+                .catch(function (error) {
+                    console.error('Error sending email:', error);
+                    alert('Failed to send the message. Please try again later.');
+                })
+                .finally(function () {
+                    
+                    submitButton.value = 'Send Message';
+                    submitButton.disabled = false;
+                });
+        });
+    </script>                    
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
